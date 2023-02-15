@@ -126,38 +126,22 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-def allow_all():
-    return True
-
 MARKDOWNIFY = {
     "default": {
-        "WHITELIST_TAGS": [
-            'a',
-            'abbr',
-            'acronym',
-            'b',
-            'blockquote',
-            'em',
-            'i',
-            'li',
-            'ol',
-            'p',
-            'strong',
-            'ul',
-            'h1',
-            'h2',
-            'h3',
-            'code',
-            'pre'
-        ],
-        "WHITELITS_ATTRIBUTES": [
-            'class',
+        "WHITELIST_TAGS" : ['a', 'abbr', 'acronym', 'b', 'blockquote', 'code', 'em', 'i', 'li', 'ol', 'strong', 'ul', 'h1', 'h2', 'h3', 'p', 'div', 'span', 'img', 'iframe', 'pre'],
 
-        ],
+        "WHITELIST_ATTRS" : {
+            '*': ['class', 'style'],
+            'a': ['href', 'rel'],
+            'img': ['src', 'alt', 'title'],
+            'iframe': ['src', 'width', 'height', 'frameborder', 'allow', 'allowfullscreen'],
+        },
+            
+
+    
         "MARKDOWN_EXTENSIONS": [
             'fenced_code',
             'markdown.extensions.extra',
-            'markdown.extensions.codehilite',
             'markdown.extensions.admonition',
             'markdown.extensions.meta',
             'markdown.extensions.nl2br',
@@ -165,7 +149,6 @@ MARKDOWNIFY = {
             'markdown.extensions.smarty',
             'markdown.extensions.toc',
             'markdown.extensions.wikilinks',
-            'pymdownx.superfences'
         ]
     }
 }
