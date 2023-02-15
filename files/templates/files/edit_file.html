@@ -1,0 +1,18 @@
+{% extends 'files/layout.html' %}
+
+{% block body %}
+<h1>Edit {{ file.title }}</h1>
+<form action="{% url 'edit_file' file.pk %}" method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="filetitle" class="form-label">Title</label>
+        <input type="text" name="title" class="form-control" value="{{ file.title }}" id="filetitle">
+    </div>
+    <div class="mb-3">
+        <label for="filebody" class="form-label">Title</label>
+        <textarea name="body" class="form-control" id="filebody" rows="10">{{ file.body }}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'files/layout.html' %}
+
+{% block body %}
+<h1>Add a file to our database!</h1>
+<form action="{% url 'add_file' %}" method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="filetitle" class="form-label">Title</label>
+        <input type="text" name="title" class="form-control" id="filetitle">
+    </div>
+    <div class="mb-3">
+        <label for="filebody" class="form-label">Title</label>
+        <textarea name="body" class="form-control" id="filebody" rows="10"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}
